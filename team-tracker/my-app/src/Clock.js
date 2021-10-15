@@ -12,8 +12,12 @@ class Clock extends React.Component {
         }, 1);
     }
     render() {
+        function formatTime(ms) {
+            ms_zero = ('000000'+ms).slice(ms.toString().length);
+            return ms_zero.substring(0, 2)+':'+ms_zero.substring(2, 4)+'.'+ms_zero.substring(4, 6);
+        }
         return (
-           <div>{`${this.state.time - this.startTime}`}</div> 
+           <div>{`${formatTime(this.state.time - this.startTime)}`}</div> 
         );
     }
 }
