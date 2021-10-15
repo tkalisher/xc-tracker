@@ -8,20 +8,21 @@ function App() {
     </div>
   );
 }
-function StartButton(props) {
-  return <button type={"button"} onClick={function(){return <Clock />}}>Start</button>
+class StartButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {started : false};
+  }
+  render() {
+    return (
+      {this.state.started && <Clock />}
+      <button type={"button"} onClick={handleClick()}}>Start</button>
+  );
+  }
+  handleClick = () => {
+    this.setState({started : true})
+  }
 }
 
-// class Clock extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {  };
-//   }
-//   render() {
-//     return (
-      
-//     );
-//   }
-// }
 
 export default App;
